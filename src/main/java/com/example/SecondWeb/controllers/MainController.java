@@ -25,16 +25,16 @@ public class MainController {
         return "home";
     }
 
-    @PostMapping("/")
+    @PostMapping("/add")
     public  String blogPostAdd(@RequestParam String full_text, Model model){
         Post post = new Post(full_text);
         postRepo.save(post);
         return "redirect:/";
     }
     @PostMapping("{id}/remove")
-    public  String blogPostDelete(@PathVariable(value = "id") long id, Model model){
-        Post post1 = postRepo.findById(id).orElseThrow();
-        postRepo.delete(post1);
+    public  String blogPostDelete(@PathVariable(value = "id") Long id, Model model){
+        Post post = postRepo.findById(id).orElseThrow();
+        postRepo.delete(post);
         return "redirect:/";
     }
 }

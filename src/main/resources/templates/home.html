@@ -14,16 +14,16 @@
     <div th:each="el : ${post}" class="alert alert-info mt-2">
         <p th:text="${el.id}"/>
         <p th:text="${el.full_text}"/>
-        <form action="${el.id}+'/remove'" method="post1">
+        <form th:action="${el.id}+'/remove'" method="post">
             <button class="btn btn-warning" type="submit">Delete</button>
         </form>
     </div>
 </div>
 <div class="container mt-5 mb-5">
     <h1>Add blogs and comments</h1>
-    <form action="/" method="post">
+    <form action="/add" method="post">
         <textarea name="full_text" placeholder="Write something" class="form-control"></textarea><br>
-        <button type="submit" class="btn btn-success">Add something</button>
+        <button  type="submit" class="btn btn-success">Add something</button>
     </form>
 </div>
 
